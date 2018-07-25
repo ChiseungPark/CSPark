@@ -20,16 +20,12 @@ public class LoginController {
 		//System.out.print(userDao.getcount());
 		/**/
 		//일단 DB에 있는 사용자 명단을 입력받은 로그인의 req와 비교하여 명단이 있으면 다음단계로 진행시킨다.
-		System.out.println(tmpPassword);
-		if(userDao.checkUserByEmail(tmpEmail) == "Existing"){
-			
-			
-			return "redirect:/main";
+		//System.out.println(tmpPassword);
+		if(userDao.checkUserByEmail(tmpEmail) == "Existing"){			
+			return "redirect:/search";
 		}
 		else{
 			return "login";
-		}	
-		//그 뒤에 비교를 한다.
-		
+		}		
 	}
 }

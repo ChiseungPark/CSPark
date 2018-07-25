@@ -21,12 +21,13 @@
 	<mvc:view-controller path="/main" view-name="main"/>
 	<context:annotation-config />
 	
+	<bean class="controller.SearchController">
+	</bean>
+	
 	<bean class="controller.MainController">
 	</bean>
 	
 	<bean class="controller.LoginController">
-		<!--  <property name="inputcheckUserList" ref="checkUserList" />-->
-		<!-- <property name="memberRegisterService" ref="memberRegSvc" />  -->
 	</bean>
 	
 </beans>

@@ -7,6 +7,23 @@
 <title>Insert title here</title>
 </head>
 <body>
- main test
+	<center>
+		<h1>Main Process Test</h1>
+	</center>
+	
+	<form action="search" method="post">
+			<table style="margin-left:auto;margin-right:auto;text-align:center;">
+				<tr>
+					<td>DataBase Table Name</td>
+					<td><input name="dbtableName" value=""/></td>
+				</tr>
+				<tr>
+					<td>variable Name</td>
+					<td><input name="var1" value="" /></td>
+			</table>
+			<center>
+				<input type="submit" value="Submit"/>
+			</center>
+		</form>
 </body>
 </html>
