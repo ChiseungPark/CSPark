@@ -24,6 +24,10 @@
 		<constructor-arg ref="dataSource" />
 	</bean>
 	
+	<bean id="searchDao" class="daos.SearchTargetDao">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	
 	<bean id="rDao" class="daos.RDao">
 		<constructor-arg ref="dataSource" />
 	</bean>

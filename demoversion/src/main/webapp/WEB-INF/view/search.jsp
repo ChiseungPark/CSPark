@@ -29,7 +29,7 @@
 		</c:if>
 	</p>
 	</c:forEach>
-	<input type="submit" value="Process">
+	<input type="submit" value="Go to Process">
 	</form>
 </body>
 </html>
