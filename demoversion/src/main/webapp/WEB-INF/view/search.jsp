@@ -14,7 +14,7 @@
 	</center>
 	
 	<form method="post">
-	<c:forEach var="q" items="${template}" varStatus="status">
+	<c:forEach var="q" items="${template1}" varStatus="status">
 	<p>
 		${status.index + 1}. ${q.question} <br/>
 		<c:if test="${q.choice}">

@@ -16,12 +16,14 @@ import dto.TemplateForSearch;
 @RequestMapping("/search")
 public class SearchController {
 	
+	private String selectedGroupOption = "Country";
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String selectWhatToDoNext(Model model){
 	
 		List<TemplateForSearch> searchTemplate = createTemplateForSearch();
-		model.addAttribute("template", searchTemplate);
+		model.addAttribute("template1", searchTemplate);
+		// 이 부분에서 country인지 company 인지 결정한다.
 		return "search";
 	}
 	
@@ -33,7 +35,6 @@ public class SearchController {
 	//
 	private List<TemplateForSearch> createTemplateForSearch(){
 		TemplateForSearch t1 = new TemplateForSearch("About what group, do you want to know?",Arrays.asList("Country","Company"));
-		
 		return Arrays.asList(t1);
 	}
 }
