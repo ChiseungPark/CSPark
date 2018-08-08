@@ -29,7 +29,7 @@
 			</c:forEach>
 		</c:if>
 		<c:if test="${!q.choice }">
-		<input type="text" name="responses[${status.index}]">
+		<input type="text" name="countryResult">
 		</c:if>
 	</p>
 	</c:forEach>
@@ -47,7 +47,7 @@
 			</c:forEach>
 		</c:if>
 		<c:if test="${!q.choice }">
-		<input type="text" name="responses[${status.index}]">
+		<input type="text" name="subResult">
 		</c:if>
 	</p>
 	</c:forEach>
@@ -55,5 +55,20 @@
 	
 	<input type="submit" value="Add To List">
 	</form>
+	
+	<form action="main" method="post">
+	<div>
+	<c:forEach var="q" items="${template3}" varStatus="status">
+	<p>
+		<c:forEach var="option" items="${q.selectedCountry} with ${q.selectedSubCategory}">
+		<label><input type="radio" 
+		              name="totalcountryResult" value="${q.selectedCountry}${q.selectedSubCategory}">
+			${q.selectedCountry} with ${q.selectedSubCategory} </br></label>
+		</c:forEach>
+	</p>
+	</c:forEach>
+	</div>
+	</form>
+	
 </body>
 </html>

@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -7,9 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import dto.SelctedDetailsForCountry;
 import dto.TemplateForSearch;
@@ -17,9 +16,17 @@ import dto.TemplateForSearch;
 @Controller
 public class SearchController {
 
-	@RequestMapping(value="/search", method = RequestMethod.GET)
-	public String selectWhatToDoNext(Model model){
+	private int numbersOfSelection =0;
+	private boolean removal = false;
+	private String resultOfCountry = null;
+	private String resultOfDetails = null;
 	
+	@RequestMapping(value="/search")
+	public String selectWhatToDoNext(Model model,HttpServletRequest request){
+		
+		resultOfCountry = request.getParameter("countryResult");
+		resultOfDetails = request.getParameter("subResult");
+		
 		List<TemplateForSearch> searchTemplate1 = createTemplate1ForSearch();
 		model.addAttribute("template1", searchTemplate1);
 		
@@ -27,35 +34,30 @@ public class SearchController {
 		model.addAttribute("template2", searchTemplate2);
 		
 		
-		List<TemplateForSearch> searchTemplate3 = createTemplate3ForSearch();
+		List<SelctedDetailsForCountry> searchTemplate3 = createTemplate3ForSearch();
 		model.addAttribute("template3", searchTemplate3);
 		
-		return "search";
-	}
-	/*
-	@RequestMapping(value="/determined", method = RequestMethod.GET)
-	public String selectedList(HttpServletRequest request){
-		String result = request.getParameter("group");
 		
-		if(result!=null){
+		if(resultOfCountry != null && resultOfDetails != null){
+			// 이 부분에서 추가되는 국가와 그에 따른 details를 쿼리 변수로 저장하기 위한 작업을 한다.
+			ArrayList<SelctedDetailsForCountry> listDetails = new ArrayList<>();
+			SelctedDetailsForCountry tmpDetails = new SelctedDetailsForCountry(resultOfCountry,resultOfDetails);
+			listDetails.add(numbersOfSelection, tmpDetails);
 			
-			if(result.equals("country")){
-				return "redirect:/search";
-			}
+			
+			// ***********리스트를 지울 수도 있으니 조건문 생성 ***********
+			if(removal == false)
+				numbersOfSelection ++ ;
 			else
-				return "redirect:/groupSellection";
+				numbersOfSelection ++ ;
+			// *********** 리스트를 지울 수도 있으니 조건문 생성 ***********
+			return "search";
 		}
-		else
-			return "groupSellection";
-		
-	}
-	*/
-	@RequestMapping(method = RequestMethod.POST)
-	public String submit(@ModelAttribute("selectedDetails") SelctedDetailsForCountry data){
-		return "redirect:/main";
+		else{
+			return "search";
+		}
 	}
 	
-	//
 	private List<TemplateForSearch> createTemplate1ForSearch(){
 		TemplateForSearch t1 = new TemplateForSearch("Which Country do you want to know?",
 				Arrays.asList(  "UNITED STATES OF AMERICA",
@@ -73,17 +75,17 @@ public class SearchController {
 		return Arrays.asList(t1);
 	}
 	
-	private List<TemplateForSearch> createTemplate3ForSearch(){
-		TemplateForSearch t3 = new TemplateForSearch("What actions do you like to do?(only 1)",
-				Arrays.asList("Analyze - mean/variance/covariance/etc",
-							  "Linear Regression",
-							  "Non Linear Regression - Second Order",
-							  "Non Linear Regression - Third Order",
-							  "Non Linear Regression - Forth Order",
-							  "Non Linear Regression - Fifth Order",
-							  "Compare - relationship with 2 details",
-							  "Factor Analysis of selected details"));
-		return Arrays.asList(t3);
+	
+	private List<SelctedDetailsForCountry> createTemplate3ForSearch(){
+		if(resultOfCountry != null && resultOfDetails != null){
+			SelctedDetailsForCountry t3 = new SelctedDetailsForCountry(resultOfCountry,resultOfDetails);
+			return Arrays.asList(t3);
+		}
+		else
+		{
+			SelctedDetailsForCountry t3 = new SelctedDetailsForCountry("test","test");
+			return Arrays.asList(t3);
+		}
 	}
 	
 	// 나라를 선택할 시에 보여질 수 있는 리스트 목록
