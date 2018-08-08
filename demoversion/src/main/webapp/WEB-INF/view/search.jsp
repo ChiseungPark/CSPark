@@ -7,22 +7,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>About Country</title>
 </head>
 <body>
 	<center>
-		<h1> Country Group Test</h1>
+		<h1> Country Group Detailst</h1>
+		<h2>2nd step: Select what details you want to use for analysis</h2>
 	</center>
 	
 	
-	<form method="post">
+	<form action="search" method="post">
+	<div>
 	<c:forEach var="q" items="${template1}" varStatus="status">
 	<p>
 		${status.index + 1}. ${q.question} <br/>
 		<c:if test="${q.choice}">
 			<c:forEach var="option" items="${q.options}">
 			<label><input type="radio" 
-			              name="responses[${status.index}]" value="${option}">
+			              name="countryResult" value="${option}">
 				${option}</br></label>
 			</c:forEach>
 		</c:if>
@@ -31,14 +33,16 @@
 		</c:if>
 	</p>
 	</c:forEach>
+	</div>
 	
+	<div>
 	<c:forEach var="q" items="${template2}" varStatus="status">
 	<p>
 		${status.index + 2}. ${q.question} <br/>
 		<c:if test="${q.choice}">
 			<c:forEach var="option" items="${q.options}">
-			<label><input type="radio" 
-			              name="responses[${status.index}]" value="${option}">
+			<label><input type="radio" name="subResult" value="${option}">			  
+			         	<!--name="responses[${status.index}]" value="${option}">-->		         	
 				${option}<br/></label>
 			</c:forEach>
 		</c:if>
@@ -47,9 +51,9 @@
 		</c:if>
 	</p>
 	</c:forEach>
+	</div>
 	
-	
-	<input type="submit" value="Go to Next Step">
+	<input type="submit" value="Add To List">
 	</form>
 </body>
 </html>

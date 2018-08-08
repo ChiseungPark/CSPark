@@ -3,21 +3,21 @@ package controller;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import dto.SelctedDetails;
+import dto.SelctedDetailsForCountry;
 import dto.TemplateForSearch;
 
 @Controller
-@RequestMapping("/search")
 public class SearchController {
-	
-		
-	@RequestMapping(method = RequestMethod.GET)
+
+	@RequestMapping(value="/search", method = RequestMethod.GET)
 	public String selectWhatToDoNext(Model model){
 	
 		List<TemplateForSearch> searchTemplate1 = createTemplate1ForSearch();
@@ -32,9 +32,26 @@ public class SearchController {
 		
 		return "search";
 	}
-	
+	/*
+	@RequestMapping(value="/determined", method = RequestMethod.GET)
+	public String selectedList(HttpServletRequest request){
+		String result = request.getParameter("group");
+		
+		if(result!=null){
+			
+			if(result.equals("country")){
+				return "redirect:/search";
+			}
+			else
+				return "redirect:/groupSellection";
+		}
+		else
+			return "groupSellection";
+		
+	}
+	*/
 	@RequestMapping(method = RequestMethod.POST)
-	public String submit(@ModelAttribute("selectedDetails") SelctedDetails data){
+	public String submit(@ModelAttribute("selectedDetails") SelctedDetailsForCountry data){
 		return "redirect:/main";
 	}
 	

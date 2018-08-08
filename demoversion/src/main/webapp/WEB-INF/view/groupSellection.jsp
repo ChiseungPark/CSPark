@@ -8,31 +8,39 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Group Selection</title>
+
+<script>
+	$(document).ready(function () {
+    $('#radioButton').click(function () {
+      // getter
+      var radioVal = $('input[name="group"]:checked').val();
+      alert(radioVal);
+    });
+  });
+</script>
 </head>
 <body>
 	
-	<c>
-			<h1>welcome again to I-statics</h1>
-			<h2>1st step: the selection of target</h2>
-	</c>
+	<center>
+			<h1>Category selection</h1>
+			<h2>1st step: which of the following would you want to do with?</h2>
+	</center>
 		
-	<form method="post">
-	<c:forEach var="q" items="${template1}" varStatus="status">
-	<p>
-		${status.index + 1}. ${q.question} <br/>
-		<c:if test="${q.choice}">
-			<c:forEach var="option" items="${q.options}">
-			<label><input type="radio" 
-			              name="responses[${status.index}]" value="${option}">
-				${option}</label>
-			</c:forEach>
-		</c:if>
-		<c:if test="${!q.choice }">
-		<input type="text" name="responses[${status.index}]">
-		</c:if>
-	</p>
-	</c:forEach>
-	<input type="submit" value="Go to Next Step">
+	<form action="groupSellection" method="post">
+		 
+		 <table style="margin-left:auto;margin-right:auto;text-align:center;">
+				<tr>
+					<td>Country</td>
+					<td><input type="radio" name="group" value="country" checked/></td>
+				</tr>
+				<tr>
+					<td>Company</td>
+					<td><input type="radio" name="group" value="company"/></td>
+				</tr>
+			</table>
+			<center>
+				<input type="submit" value="GO TO NEXT STEP"/>
+			</center>
 	</form>
 	
 </body>
