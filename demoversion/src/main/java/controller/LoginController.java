@@ -22,7 +22,7 @@ public class LoginController {
 		//일단 DB에 있는 사용자 명단을 입력받은 로그인의 req와 비교하여 명단이 있으면 다음단계로 진행시킨다.
 		//System.out.println(tmpPassword);
 		if(userDao.checkUserByEmail(tmpEmail) == "Existing"){			
-			return "redirect:/search";
+			return "redirect:/GroupSellection";
 		}
 		else{
 			return "login";

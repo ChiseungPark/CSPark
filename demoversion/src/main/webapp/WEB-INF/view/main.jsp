@@ -5,6 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+
+		<!--Main Stylesheet-->
+        <link href="css/style.css" rel="stylesheet">
+        <!--Responsive Framework-->
+		
+		<style type="text/css">
+			c{
+				text-align:center
+			}
+		</style>
+		
 </head>
 <body>
 	<center>

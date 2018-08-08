@@ -24,6 +24,9 @@
 	<bean class="controller.SearchController">
 	</bean>
 	
+	<bean class="controller.GroupController">
+	</bean>
+	
 	<bean class="controller.MainController">
 	</bean>
 	
