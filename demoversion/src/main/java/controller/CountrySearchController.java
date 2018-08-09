@@ -14,14 +14,14 @@ import dto.SelctedDetailsForCountry;
 import dto.TemplateForSearch;
 
 @Controller
-public class SearchController {
+public class CountrySearchController {
 
 	private int numbersOfSelection =0;
 	private boolean removal = false;
 	private String resultOfCountry = null;
 	private String resultOfDetails = null;
 	
-	@RequestMapping(value="/search")
+	@RequestMapping(value="/countrysearch")
 	public String selectWhatToDoNext(Model model,HttpServletRequest request){
 		
 		resultOfCountry = request.getParameter("countryResult");
@@ -51,10 +51,10 @@ public class SearchController {
 			else
 				numbersOfSelection ++ ;
 			// *********** 리스트를 지울 수도 있으니 조건문 생성 ***********
-			return "search";
+			return "countrysearch";
 		}
 		else{
-			return "search";
+			return "countrysearch";
 		}
 	}
 	

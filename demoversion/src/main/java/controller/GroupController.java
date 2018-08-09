@@ -16,7 +16,7 @@ public class GroupController {
 		if(result!=null){
 			
 			if(result.equals("country")){
-				return "redirect:/search";
+				return "redirect:/countrysearch";
 			}
 			else
 				return "redirect:/groupSellection";

@@ -16,7 +16,7 @@
 	</center>
 	
 	
-	<form action="search" method="post">
+	<form action="countrysearch" method="post">
 	<div>
 	<c:forEach var="q" items="${template1}" varStatus="status">
 	<p>
