@@ -21,7 +21,7 @@
 	<mvc:view-controller path="/main" view-name="main"/>
 	<context:annotation-config />
 	
-	<bean class="controller.SearchController">
+	<bean class="controller.CountrySearchController">
 	</bean>
 	
 	<bean class="controller.GroupController">
