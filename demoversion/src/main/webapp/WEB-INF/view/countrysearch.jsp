@@ -17,6 +17,7 @@
 	
 	
 	<form action="countrysearch" method="post">
+	
 	<div>
 	<c:forEach var="q" items="${template1}" varStatus="status">
 	<p>
@@ -60,11 +61,10 @@
 	<div>
 	<c:forEach var="q" items="${template3}" varStatus="status">
 	<p>
-		<c:forEach var="option" items="${q.selectedCountry} with ${q.selectedSubCategory}">
-		<label><input type="radio" 
-		              name="totalcountryResult" value="${q.selectedCountry}${q.selectedSubCategory}">
-			${q.selectedCountry} with ${q.selectedSubCategory} </br></label>
-		</c:forEach>
+		<label>
+		<input type="radio" name="totalcountryResult" value="${q.selectedCountry}&${q.selectedSubCategory}">
+			${q.index}. ${q.selectedCountry} with ${q.selectedSubCategory} </br>
+		</label>
 	</p>
 	</c:forEach>
 	</div>

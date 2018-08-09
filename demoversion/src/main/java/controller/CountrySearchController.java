@@ -16,10 +16,9 @@ import dto.TemplateForSearch;
 @Controller
 public class CountrySearchController {
 
-	private int numbersOfSelection =0;
-	private boolean removal = false;
 	private String resultOfCountry = null;
 	private String resultOfDetails = null;
+	ArrayList<SelctedDetailsForCountry> listDetails = new ArrayList<SelctedDetailsForCountry>();
 	
 	@RequestMapping(value="/countrysearch")
 	public String selectWhatToDoNext(Model model,HttpServletRequest request){
@@ -37,25 +36,7 @@ public class CountrySearchController {
 		List<SelctedDetailsForCountry> searchTemplate3 = createTemplate3ForSearch();
 		model.addAttribute("template3", searchTemplate3);
 		
-		
-		if(resultOfCountry != null && resultOfDetails != null){
-			// 이 부분에서 추가되는 국가와 그에 따른 details를 쿼리 변수로 저장하기 위한 작업을 한다.
-			ArrayList<SelctedDetailsForCountry> listDetails = new ArrayList<>();
-			SelctedDetailsForCountry tmpDetails = new SelctedDetailsForCountry(resultOfCountry,resultOfDetails);
-			listDetails.add(numbersOfSelection, tmpDetails);
-			
-			
-			// ***********리스트를 지울 수도 있으니 조건문 생성 ***********
-			if(removal == false)
-				numbersOfSelection ++ ;
-			else
-				numbersOfSelection ++ ;
-			// *********** 리스트를 지울 수도 있으니 조건문 생성 ***********
-			return "countrysearch";
-		}
-		else{
-			return "countrysearch";
-		}
+		return "countrysearch";
 	}
 	
 	private List<TemplateForSearch> createTemplate1ForSearch(){
@@ -75,7 +56,27 @@ public class CountrySearchController {
 		return Arrays.asList(t1);
 	}
 	
+	private List<SelctedDetailsForCountry> createTemplate3ForSearch(){
+		ArrayList<SelctedDetailsForCountry> selectedCombination = new ArrayList<SelctedDetailsForCountry>();
+		
+		if(resultOfCountry != null && resultOfDetails != null){
+			SelctedDetailsForCountry t3 = new SelctedDetailsForCountry(resultOfCountry,resultOfDetails);
+			selectedCombination.add(t3); // ArrayList로 계속 담는다.
+			return selectedCombination;
+		}
+		else if ((resultOfCountry == null || resultOfDetails == null)&&(selectedCombination.size()>=1) )
+		{
+			// 만약 아무것도 선택하지 않고 버튼을 누르면 기존에 선택했던 내용들은 다 남겨두어야 한다.
+			return selectedCombination;
+		}
+		else
+		{
+			SelctedDetailsForCountry t3 = new SelctedDetailsForCountry("Nothing on the list","");
+			return Arrays.asList(t3);
+		}
+	}
 	
+	/* 아래 부분을 약간 수정해서 위처럼 ArrayList에 생성되는 객체를 계속해서 담도록 한다.
 	private List<SelctedDetailsForCountry> createTemplate3ForSearch(){
 		if(resultOfCountry != null && resultOfDetails != null){
 			SelctedDetailsForCountry t3 = new SelctedDetailsForCountry(resultOfCountry,resultOfDetails);
@@ -83,11 +84,11 @@ public class CountrySearchController {
 		}
 		else
 		{
-			SelctedDetailsForCountry t3 = new SelctedDetailsForCountry("test","test");
+			SelctedDetailsForCountry t3 = new SelctedDetailsForCountry("","");
 			return Arrays.asList(t3);
 		}
 	}
-	
+	*/
 	// 나라를 선택할 시에 보여질 수 있는 리스트 목록
 	private List<TemplateForSearch> createTemplate2ForSearch(){
 		TemplateForSearch t2 = new TemplateForSearch("About what details, do you want to know more? (multiple choice available)",
