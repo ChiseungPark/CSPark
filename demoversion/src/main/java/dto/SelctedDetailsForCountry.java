@@ -6,9 +6,9 @@ public class SelctedDetailsForCountry {
 	private String selectedSubCategory = null;
 	
 	// 인스턴스를 만들면서 바로 변수에 할당을 할 수 있도록 세팅한다.
-	public SelctedDetailsForCountry(String inputForGroup, String inputForSubCategory){
+	public SelctedDetailsForCountry(String inputForCountry, String inputForSubCategory){
 		
-		this.selectedCountry = inputForGroup;
+		this.selectedCountry = inputForCountry;
 		this.selectedSubCategory = inputForSubCategory;
 	}
 	
@@ -26,4 +26,7 @@ public class SelctedDetailsForCountry {
 		return selectedSubCategory;
 	}
 	
+	public boolean isChoice() {
+		return selectedSubCategory != null && !selectedSubCategory.isEmpty();
+	}
 }

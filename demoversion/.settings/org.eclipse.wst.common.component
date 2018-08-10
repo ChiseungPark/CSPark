@@ -4,7 +4,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resource"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
         <wb-resource deploy-path="/" source-path="/target"/>
-        <property name="context-root" value="demoversion"/>
         <property name="java-output-path" value="/demoversion/target/classes"/>
+        <property name="context-root" value="demoversion-0.0.1-SNAPSHOT"/>
     </wb-module>
 </project-modules>

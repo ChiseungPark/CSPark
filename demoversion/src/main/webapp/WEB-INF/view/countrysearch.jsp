@@ -11,7 +11,7 @@
 </head>
 <body>
 	<center>
-		<h1> Country Group Detailst</h1>
+		<h1> Country Group Details</h1>
 		<h2>2nd step: Select what details you want to use for analysis</h2>
 	</center>
 	
@@ -53,8 +53,15 @@
 	</p>
 	</c:forEach>
 	</div>
+		
+	<input type="submit" value="Add To the List">
+	</form>
 	
-	<input type="submit" value="Add To List">
+	<form action="countrysearch" method="post">
+	<div>
+		<input type="hidden" name="rstList" value="clear">
+		<input type="submit" value="Clear the List">
+	</div>
 	</form>
 	
 	<form action="main" method="post">
@@ -63,11 +70,12 @@
 	<p>
 		<label>
 		<input type="radio" name="totalcountryResult" value="${q.selectedCountry}&${q.selectedSubCategory}">
-			${q.index}. ${q.selectedCountry} with ${q.selectedSubCategory} </br>
+			${status.index + 1}.  ${q.selectedCountry} WITH ${q.selectedSubCategory} </br>
 		</label>
 	</p>
 	</c:forEach>
 	</div>
+	<input type="submit" value="Go To Next">
 	</form>
 	
 </body>

@@ -18,14 +18,19 @@ public class CountrySearchController {
 
 	private String resultOfCountry = null;
 	private String resultOfDetails = null;
-	ArrayList<SelctedDetailsForCountry> listDetails = new ArrayList<SelctedDetailsForCountry>();
+	private String resetList = null;
+	
+	ArrayList<SelctedDetailsForCountry> selectedCombination = new ArrayList<SelctedDetailsForCountry>();
+	SelctedDetailsForCountry t3 = new SelctedDetailsForCountry("No country","No options selected yet");
 	
 	@RequestMapping(value="/countrysearch")
 	public String selectWhatToDoNext(Model model,HttpServletRequest request){
 		
+		// 인풋이 새로 들어오는 것을 지역변수로 할당한다.
 		resultOfCountry = request.getParameter("countryResult");
 		resultOfDetails = request.getParameter("subResult");
-		
+		resetList = request.getParameter("rstList");
+				
 		List<TemplateForSearch> searchTemplate1 = createTemplate1ForSearch();
 		model.addAttribute("template1", searchTemplate1);
 		
@@ -57,12 +62,23 @@ public class CountrySearchController {
 	}
 	
 	private List<SelctedDetailsForCountry> createTemplate3ForSearch(){
-		ArrayList<SelctedDetailsForCountry> selectedCombination = new ArrayList<SelctedDetailsForCountry>();
 		
+		
+		SelctedDetailsForCountry t3_2 = new SelctedDetailsForCountry(resultOfCountry,resultOfDetails);
+		// 밖에서 인스턴스는 선언함
 		if(resultOfCountry != null && resultOfDetails != null){
-			SelctedDetailsForCountry t3 = new SelctedDetailsForCountry(resultOfCountry,resultOfDetails);
-			selectedCombination.add(t3); // ArrayList로 계속 담는다.
+			selectedCombination.add(t3_2); // ArrayList로 계속 담는다.
 			return selectedCombination;
+		}
+		else if(resetList == "clear"){
+			selectedCombination.clear();
+			if(selectedCombination.isEmpty() == true)
+				return Arrays.asList(t3);
+			else{
+				SelctedDetailsForCountry t4_test = new SelctedDetailsForCountry("resetList was set to be ","clear but uable empty the list");
+				selectedCombination.add(t4_test);
+				return selectedCombination;
+			}	
 		}
 		else if ((resultOfCountry == null || resultOfDetails == null)&&(selectedCombination.size()>=1) )
 		{
@@ -71,7 +87,6 @@ public class CountrySearchController {
 		}
 		else
 		{
-			SelctedDetailsForCountry t3 = new SelctedDetailsForCountry("Nothing on the list","");
 			return Arrays.asList(t3);
 		}
 	}
