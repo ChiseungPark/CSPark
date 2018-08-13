@@ -22,7 +22,7 @@
 		<h1>Main Process Test</h1>
 	</center>
 	
-	<form action="search" method="post">
+	<form action="main" method="post">
 			<table style="margin-left:auto;margin-right:auto;text-align:center;">
 				<tr>
 					<td>DataBase Table Name</td>
