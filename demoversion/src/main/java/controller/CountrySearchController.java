@@ -70,7 +70,8 @@ public class CountrySearchController {
 			selectedCombination.add(t3_2); // ArrayList로 계속 담는다.
 			return selectedCombination;
 		}
-		else if(resetList == "clear"){
+		else if(resetList!= null && resetList.toUpperCase().contains("CLEAR") == true)
+		{
 			selectedCombination.clear();
 			if(selectedCombination.isEmpty() == true)
 				return Arrays.asList(t3);

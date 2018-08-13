@@ -35,7 +35,6 @@
 	</p>
 	</c:forEach>
 	</div>
-	
 	<div>
 	<c:forEach var="q" items="${template2}" varStatus="status">
 	<p>
@@ -53,16 +52,19 @@
 	</p>
 	</c:forEach>
 	</div>
-		
 	<input type="submit" value="Add To the List">
+	<input type="submit" name="rstList" value="Clear the List">
 	</form>
 	
+	
+	<!--  이 부분은 form이 2개라서 서블릿쪽으로 명령어 전달이 안되어 삭제처리함.
 	<form action="countrysearch" method="post">
 	<div>
 		<input type="hidden" name="rstList" value="clear">
 		<input type="submit" value="Clear the List">
 	</div>
 	</form>
+	-->
 	
 	<form action="main" method="post">
 	<div>
