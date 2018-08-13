@@ -66,7 +66,7 @@
 	</form>
 	-->
 	
-	<form action="main" method="post">
+	<form action="countryprocess" method="post">
 	<div>
 	<c:forEach var="q" items="${template3}" varStatus="status">
 	<p>
