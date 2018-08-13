@@ -23,6 +23,8 @@
 	
 	<bean class="controller.CountrySearchController">
 	</bean>
+	<bean class="controller.CountryProcessController">
+	</bean>
 	
 	<bean class="controller.GroupController">
 	</bean>

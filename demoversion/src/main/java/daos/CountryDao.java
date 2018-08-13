@@ -10,30 +10,29 @@
 
 package daos;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.sql.DataSource;
 
-import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 
-import modules.actions.Users;
-
-public class RDao {		
-		
+public class CountryDao {		
+	
+	private String nation ="";
+	private String action ="";
 	private JdbcTemplate jdbcTemplate;
 	private String dbTableName = "";
 	
-	public RDao(DataSource dataSource) {
+	public CountryDao(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
 	// 이 부분에는 Nation 이나 Company에 대한 DTO를 기반으로 JdbcTemplate을 만든다. 
 	
+	public String selectNationDetails(String nation, String Details){
+		// 이 부분에 query가 들어간다.
+		
+		return "nothing";
+		
+	}
 
 }
 

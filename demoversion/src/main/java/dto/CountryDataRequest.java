@@ -57,7 +57,67 @@ public class CountryDataRequest {
 	private String Tax_revenue_percnt_of_GDP = null;
 	private String Taxes_on_international_trade_percnt_of_revenue = null;
 	
-	
+	//생성자부분
+	public CountryDataRequest(String input1,String input2,String input3,String input4,String input5,String input6,
+								String input7,String input8,String input9,String input10,String input11,String input12,
+								String input13,String input14,String input15,String input16,String input17,String input18,
+								String input19,String input20,String input21,String input22,String input23,String input24,
+								String input25,String input26,String input27,String input28,String input29,String input30,
+								String input31,String input32,String input33,String input34,String input35,String input36,
+								String input37,String input38,String input39,String input40,String input41,String input42,
+								String input43,String input44)
+	{
+		//1~10
+		this.year = input1;
+		this.High_technology_exports = input2;
+		this.Commercial_service_exports = input3;
+		this.Merchandise_exports = input4;
+		this.Commercial_service_import = input5;
+		this.Merchandise_imports = input6;
+		this.Mortality_rate_neonatal_per_1000 = input7;
+		this.Government_expenditure_on_education_total_percnt_of_GDP = input8;
+		this.Individuals_using_the_Internet_percnt_of_population = input9;
+		this.Mobile_cellular_subscriptions_per_100_people = input10;
+		//11~20
+		this.Rail_lines_total_route_km = input11;
+		this.Railways_passengers_carried_million_passenger_km = input12;
+		this.Railways_goods_transported_million_ton_km = input13;
+		this.Air_transport_passengers_carried = input14;
+		this.Air_transport_freight_million_ton_km = input15;
+		this.Air_transport_registered_carrier_departures_worldwide = input16;
+		this.Trademark_applications_total = input17;
+		this.Patent_applications_residents = input18;
+		this.Patent_applications_nonresidents = input19;
+		this.Fuel_imports_percnt_of_merchandise_imports = input20;
+		//21~30
+		this.Food_imports_percnt_of_merchandise_imports = input21;
+		this.Agricultural_raw_materials_imports_percnt_of_merchandise_imports = input22;
+		this.Urban_population = input23;
+		this.Urban_population_growth_annual_percnt = input24;
+		this.Rural_population_growth_annual_percnt = input25;
+		this.Rural_population = input26;
+		this.Population_male = input27;
+		this.Population_female = input28;
+		this.Population_total = input29;
+		this.Population_growth_annual_percnt = input30;
+		//31~40
+		this.Sex_ratio_at_birth_male_births_per_female_births = input31;
+		this.Population_ages_65_and_above_total = input32;
+		this.School_enrollment_primary_percnt_gross = input33;
+		this.Pupil_teacher_ratio_primary = input34;
+		this.Primary_education_pupils_percnt_female = input35;
+		this.Primary_education_pupils = input36;
+		this.Primary_education_duration_years = input37;
+		this.Cost_to_export_USD_per_container = input38;
+		this.Expense_percnt_of_GDP = input39;
+		this.Other_expense_percnt_of_expense = input40;
+		//41~44
+		this.Interest_payments_percnt_of_expense = input41;
+		this.Interest_payments_percnt_of_revenue = input42;
+		this.Tax_revenue_percnt_of_GDP = input43;
+		this.Taxes_on_international_trade_percnt_of_revenue = input44;
+		
+	}
 	// getter , setter 함수
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	//1

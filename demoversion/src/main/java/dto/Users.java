@@ -7,7 +7,7 @@
 // User에 대한 Atrributes와 Get/Set을 가지고 있는 Bean 개념의 객체로 DTO 개념을 가진다.
 // 
 //////////////////////////////////////////////////////
-package modules.actions;
+package dto;
 
 import java.util.Date;
 

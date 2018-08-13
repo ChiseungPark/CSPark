@@ -25,7 +25,7 @@
 	</bean>
 	
 	
-	<bean id="rDao" class="daos.RDao">
+	<bean id="CountryDao" class="daos.CountryDao">
 		<constructor-arg ref="dataSource" />
 	</bean>
 	    
