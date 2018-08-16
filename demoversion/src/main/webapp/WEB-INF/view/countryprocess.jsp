@@ -21,6 +21,20 @@
 	<center>
 		<h1>Country Process Test</h1>
 	</center>
+	
+	<form action="countryprocess" method="post">
+	
+	<div>
+	<table>
+		<c:forEach items="${selectedList}" var="each" varStatus="status">
+		<tr>
+			<td>${status.index + 1}. ${each.countryName}</td>
+			<td>${each.countryAction}</td>
+		</tr>
+		</c:forEach>
+	</table>
+	</div>
+	</form>
 
 </body>
 </html>
