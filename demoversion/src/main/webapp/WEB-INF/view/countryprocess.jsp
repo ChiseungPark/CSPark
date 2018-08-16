@@ -28,8 +28,8 @@
 	<table>
 		<c:forEach items="${selectedList}" var="each" varStatus="status">
 		<tr>
-			<td>${status.index + 1}. ${each.countryName}</td>
-			<td>${each.countryAction}</td>
+			<td>${status.index + 1}. ${each[status.index].CountryActionsAndNumbers.countryName}</td>
+			<td>${each[status.index].CountryActionsAndNumbers.countryAction}</td>
 		</tr>
 		</c:forEach>
 	</table>

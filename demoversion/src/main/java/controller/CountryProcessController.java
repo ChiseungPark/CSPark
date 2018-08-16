@@ -16,7 +16,7 @@ public class CountryProcessController {
 	private String countryName = "KOR";
 	private String detailedAction = "Population_total";
 	private String nextPath = null;
-	private String previousSelection = countryName+"-"+detailedAction;
+	private String previousSelection = null;
 	private String[] selectionParts = null;
 	public int nIndex = 0;
 	public ArrayList<CountryActionsAndNumbers> selectedList = new ArrayList<CountryActionsAndNumbers>();
