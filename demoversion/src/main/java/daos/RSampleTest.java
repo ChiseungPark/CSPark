@@ -31,7 +31,9 @@ public class RSampleTest {
 	private String newCommand = "R1<-";
 	private String readCSv = "read.csv";
 	private int lthofRSummary = 0;
+	private String[] sampleResult = null;
 	
+	RList tempList = new RList();
 	
 	@Test
 	public void Rconnect() throws RserveException, REXPMismatchException, FileNotFoundException, IOException {
@@ -50,21 +52,27 @@ public class RSampleTest {
             System.out.println(x.asString());    
             x= c.eval("setwd("+workingDirectory+");");
             System.out.println(x.asString());    
+            lthofRSummary = x.length();
             
             newCommand=newCommand+readCSv+"("+fileName+");";
             x= c.eval(newCommand);
             String tmpResult= c.eval("summary(R1);").asString();
             
             System.out.println("--------SUMMARY--------");    
-            System.out.println(tmpResult);    
-            System.out.println("Length of R Summary rows"+x.length());    
-            lthofRSummary = x.length();
-         
-            for(int i=0;i<lthofRSummary;i++){
-            	            	
-            }
+            System.out.println(tmpResult);
+            System.out.println("--------RList Test--------");
             
-            System.out.println("--------MODEL VIEWER--------");    // prints result
+            /* 이 부분은 돌지 않음....but don`t know why...
+            tempList= c.eval("summary(R1);").asList();
+                       
+            for(int i=0;i<x.length();i++){
+            	sampleResult[i] = tempList.at(i).toString();
+            	System.out.println(sampleResult[i]);
+            }
+            */
+            System.out.println("Length of R Summary rows is"+x.length());    
+                      
+            System.out.println("--------Result Completed from R--------");    // prints result
         
         } else {
             System.out.println("Rserve could not connect");
