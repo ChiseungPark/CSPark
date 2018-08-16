@@ -71,7 +71,7 @@
 	<c:forEach var="q" items="${template3}" varStatus="status">
 	<p>
 		<label>
-		<input type="hidden" name="totalcountryResult" value="${q.selectedCountry}-${q.selectedSubCategory}-">
+		<input type="hidden" name="totalcountryResult" value="${q.selectedCountry}\\.${q.selectedSubCategory}\\.">
 			${status.index + 1}.  ${q.selectedCountry} WITH ${q.selectedSubCategory} </br>
 		</label>
 	</p>

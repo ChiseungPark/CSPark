@@ -26,7 +26,7 @@ public class CountryProcessController {
 		
 		previousSelection = request.getParameter("totalcountryResult");
 		nextPath = request.getParameter("next");
-		selectionParts = previousSelection.split("-"); //짝수는 국가이름 홀수는 액션이름
+		selectionParts = previousSelection.split("\\."); //짝수는 국가이름 홀수는 액션이름
 		nIndex = selectionParts.length; // 몇개의 인덱스가 존재하는지 계산한다.
 		
 		if(previousSelection.isEmpty() != true){
