@@ -19,6 +19,7 @@ public class CountrySearchController {
 	private String resultOfCountry = null;
 	private String resultOfDetails = null;
 	private String resetList = null;
+	private String resultString = null;
 	
 	ArrayList<SelctedDetailsForCountry> selectedCombination = new ArrayList<SelctedDetailsForCountry>();
 	SelctedDetailsForCountry t3 = new SelctedDetailsForCountry("No country","No options selected yet");
@@ -41,6 +42,10 @@ public class CountrySearchController {
 		List<SelctedDetailsForCountry> searchTemplate3 = createTemplate3ForSearch();
 		model.addAttribute("template3", searchTemplate3);
 		
+		// 하나는 다음 화면으로 값 전달을 위해서 설정함
+		String searchTemplate4 = createTemplate4ForSearch();
+		model.addAttribute("template4", searchTemplate4);
+		
 		return "countrysearch";
 	}
 	
@@ -60,7 +65,17 @@ public class CountrySearchController {
 								"SPAIN"));
 		return Arrays.asList(t1);
 	}
+	// 이 부분에서 스트링으로 입력받은 값을 다 조합하고 넘겨주도록 하자.
 	
+	private String createTemplate4ForSearch(){
+		resultString = ""; // 반드시 함수 호출 시마다 초기화 필요
+		for(int index=0;index<selectedCombination.size();index++){
+			//selectedCombination은 SelctedDetailsForCountry의 객체들로 이루어져 있다.
+			resultString = resultString+ selectedCombination.get(index).getSelectedCountry()+"<br/>"+
+							selectedCombination.get(index).getSelectedSubCategory()+"<br/>";
+		}
+		return resultString;
+	}
 	private List<SelctedDetailsForCountry> createTemplate3ForSearch(){
 		
 		
@@ -92,19 +107,7 @@ public class CountrySearchController {
 		}
 	}
 	
-	/* 아래 부분을 약간 수정해서 위처럼 ArrayList에 생성되는 객체를 계속해서 담도록 한다.
-	private List<SelctedDetailsForCountry> createTemplate3ForSearch(){
-		if(resultOfCountry != null && resultOfDetails != null){
-			SelctedDetailsForCountry t3 = new SelctedDetailsForCountry(resultOfCountry,resultOfDetails);
-			return Arrays.asList(t3);
-		}
-		else
-		{
-			SelctedDetailsForCountry t3 = new SelctedDetailsForCountry("","");
-			return Arrays.asList(t3);
-		}
-	}
-	*/
+	
 	// 나라를 선택할 시에 보여질 수 있는 리스트 목록
 	private List<TemplateForSearch> createTemplate2ForSearch(){
 		TemplateForSearch t2 = new TemplateForSearch("About what details, do you want to know more? (multiple choice available)",

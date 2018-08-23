@@ -23,15 +23,12 @@
 	</center>
 	
 	<form action="countryprocess" method="post">
-	
+
 	<div>
 	<table>
-		<c:forEach items="${selectedList}" var="each" varStatus="status">
-		<tr>
-			<td>${status.index + 1}. ${each[status.index].CountryActionsAndNumbers.countryName}</td>
-			<td>${each[status.index].CountryActionsAndNumbers.countryAction}</td>
-		</tr>
-		</c:forEach>
+	<p>
+		${selectedList2.context}
+	</p>
 	</table>
 	</div>
 	</form>
