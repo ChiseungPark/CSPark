@@ -9,6 +9,9 @@
 
 package daos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,7 +21,6 @@ public class CountryDao {
 	private String nation ="";
 	private String action ="";
 	private JdbcTemplate jdbcTemplate;
-	private String dbTableName = "";
 	
 	public CountryDao(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
@@ -26,10 +28,11 @@ public class CountryDao {
 	
 	// 이 부분에는 Nation 이나 Company에 대한 DTO를 기반으로 JdbcTemplate을 만든다. 
 	
-	public String selectNationDetails(String nation, String Details){
-		// 이 부분에 query가 들어간다.
-		
-		return "nothing";
+	public ArrayList<String> getNumbersFromCountryData(String country, String action1){
+		nation = country;
+		action = action1;
+		String query = "select"+" "+action+" "+"from"+" "+"nkordata";//하나씩 공란을 두어야 한다.
+		return (ArrayList<String>) jdbcTemplate.queryForList(query, String.class);
 		
 	}
 

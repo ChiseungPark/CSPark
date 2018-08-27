@@ -1,10 +1,12 @@
 package dto;
 
+import java.util.List;
+
 public class CountryActionsAndNumbers {
 	
 	private String countryName = null;
 	private String countryAction = null;
-	private String[] countryNembers = null;
+	private List<String> countryNumbers = null;
 	
 	public CountryActionsAndNumbers(String name, String action){
 		this.countryName = name;
@@ -24,5 +26,12 @@ public class CountryActionsAndNumbers {
 	}
 	public void setCountryAction(String input){
 		this.countryAction = input;
+	}
+	//3
+	public List<String> getCountryNumbers(){
+		return countryNumbers;
+	}
+	public void setCountryNumbers(List<String> inputList){
+		this.countryNumbers = inputList;
 	}
 }

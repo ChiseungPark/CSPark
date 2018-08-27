@@ -28,20 +28,21 @@
 	<form action="countryprocess" method="post">
 
 	<div>
-		<table>
-			<p>
-				${selectedList2.context}
-			</p>
-		</table>
-	
-	<div>
+	<c:forEach var="each" items="${test}" varStatus="status">
+		${status.index + 1}. ${each.selectedCountry}  ${each.selectedSubCategory}<br/>
+	</c:forEach>
+		<!--
 		<c:forEach var="each" items="${selectedList1}" varStatus="status">
 			<p>
-				${status.index + 1}. ${each.countryName}  ${each.countryAction}<br/>	
+				${status.index + 1}. ${each.countryName}  ${each.countryAction}<br/>
+					<c:forEach var="subnumbers" items="${selectedList1.countryNumbers}" varStatus="status">
+						${subnumbers} 
+						값 사이에 콤마 넣음<c:if test="${not status.last }">, </c:if>
+					</c:forEach>
 			</p>
 		</c:forEach>
-	</div>
-	
+		-->
+			
 	</div>
 	</form>
 
