@@ -71,8 +71,8 @@ public class CountrySearchController {
 		resultString = ""; // 반드시 함수 호출 시마다 초기화 필요
 		for(int index=0;index<selectedCombination.size();index++){
 			//selectedCombination은 SelctedDetailsForCountry의 객체들로 이루어져 있다.
-			resultString = resultString+ selectedCombination.get(index).getSelectedCountry()+"<br/>"+
-							selectedCombination.get(index).getSelectedSubCategory()+"<br/>";
+			resultString = resultString+ selectedCombination.get(index).getSelectedCountry()+"pchis"+
+							selectedCombination.get(index).getSelectedSubCategory()+"pchis";
 		}
 		return resultString;
 	}

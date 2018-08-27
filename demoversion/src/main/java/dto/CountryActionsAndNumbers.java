@@ -4,12 +4,11 @@ public class CountryActionsAndNumbers {
 	
 	private String countryName = null;
 	private String countryAction = null;
-	private String[] countryNumbers = null;
+	private String[] countryNembers = null;
 	
-	public CountryActionsAndNumbers(String name, String action, String[] numbers){
+	public CountryActionsAndNumbers(String name, String action){
 		this.countryName = name;
 		this.countryAction = action;
-		this.countryNumbers = numbers;
 	}
 	// getter,setter 함수
 	//1
@@ -25,12 +24,5 @@ public class CountryActionsAndNumbers {
 	}
 	public void setCountryAction(String input){
 		this.countryAction = input;
-	}
-	//3
-	public String[] getCountryNumbers(){
-		return countryNumbers;
-	}
-	public void setCountryNumbers(String[] input){
-		this.countryNumbers = input;
 	}
 }

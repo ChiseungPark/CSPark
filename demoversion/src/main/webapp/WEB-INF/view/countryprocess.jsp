@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,11 +28,20 @@
 	<form action="countryprocess" method="post">
 
 	<div>
-	<table>
-	<p>
-		${selectedList2.context}
-	</p>
-	</table>
+		<table>
+			<p>
+				${selectedList2.context}
+			</p>
+		</table>
+	
+	<div>
+		<c:forEach var="each" items="${selectedList1}" varStatus="status">
+			<p>
+				${status.index + 1}. ${each.countryName}  ${each.countryAction}<br/>	
+			</p>
+		</c:forEach>
+	</div>
+	
 	</div>
 	</form>
 
