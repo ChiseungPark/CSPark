@@ -36,6 +36,7 @@ public class CountryProcessController {
 		// tmp 리스트는 테스트를 위해서 설정함.
 		List<CountryActionsAndNumbers> selectedList = new ArrayList<CountryActionsAndNumbers>();
 		List<SelctedDetailsForCountry> tmpList = new ArrayList<SelctedDetailsForCountry>();
+		List<String> tmpValues = new ArrayList<String>();
 		
 		if(request.getParameter("totalcountryResult")!=null){
 			// 이 부분까지 정확히 들어오는 것은 확인함.
@@ -56,6 +57,14 @@ public class CountryProcessController {
 			tmpList.add(index,new SelctedDetailsForCountry(selectionParts[2*index],selectionParts[2*index+1]));
 			}
 		}
+		
+		///////////////////////////////////////////////////////////////////////////////////////////
+		// 테스트 및 비교를 위해서 test2를 설정함 ( 이건 되는 것을 확인함)
+		if(selectionParts[0].isEmpty() != true){
+			
+			tmpValues = countryDao.getNumbersFromCountryData(selectionParts[0],selectionParts[1]);
+		}
+		
 		///////////////////////////////////////////////////////////////////////////////////////////
 		// countryDao.getNumbersFromCountryData 까지는 쿼리가 제대로 들어가는 것을 확인함.
 		
@@ -71,8 +80,10 @@ public class CountryProcessController {
 						
 			}
 			// jsp에서 selectedList를 어떻게 보여줄 지 foreach로 확인해야한다.
-			//model.addAttribute("selectedList1", selectedList);
+			
 			model.addAttribute("test", tmpList);
+			model.addAttribute("test2", tmpValues);
+			//model.addAttribute("selectedList1", selectedList);
 		}
 		else
 		{

@@ -31,6 +31,9 @@
 	<c:forEach var="each" items="${test}" varStatus="status">
 		${status.index + 1}. ${each.selectedCountry}  ${each.selectedSubCategory}<br/>
 	</c:forEach>
+	<c:forEach var="each" items="${test2}" varStatus="status">
+		${each} </br>
+	</c:forEach>
 		<!--
 		<c:forEach var="each" items="${selectedList1}" varStatus="status">
 			<p>
