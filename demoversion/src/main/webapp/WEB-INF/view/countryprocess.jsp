@@ -28,24 +28,29 @@
 	<form action="countryprocess" method="post">
 
 	<div>
+	<!--  
 	<c:forEach var="each" items="${test}" varStatus="status">
 		${status.index + 1}. ${each.selectedCountry}  ${each.selectedSubCategory}<br/>
 	</c:forEach>
 	<c:forEach var="each" items="${test2}" varStatus="status">
 		${each} </br>
 	</c:forEach>
-		<!--
-		<c:forEach var="each" items="${selectedList1}" varStatus="status">
-			<p>
-				${status.index + 1}. ${each.countryName}  ${each.countryAction}<br/>
-					<c:forEach var="subnumbers" items="${selectedList1.countryNumbers}" varStatus="status">
-						${subnumbers} 
-						값 사이에 콤마 넣음<c:if test="${not status.last }">, </c:if>
-					</c:forEach>
-			</p>
-		</c:forEach>
-		-->
-			
+	-->	
+	
+	<!-- ArrayList 안에 ArrayList가 있을 경우 var와 item이름을 맞춰주어야 한다  -->
+	<p>
+	</p>
+	<table border=1>
+	<c:forEach var="each" items="${selectedList1}" varStatus="status">
+			<tr>
+			<th>${each.countryName}
+			${each.countryAction}</th>
+				<c:forEach var="subnumbers" items="${each.countryNumbers}" varStatus="status">
+				<td>${subnumbers}</td>
+				</c:forEach>
+			</tr>
+	</c:forEach>
+	</table>
 	</div>
 	</form>
 

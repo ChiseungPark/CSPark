@@ -73,9 +73,8 @@ public class CountryProcessController {
 			for(int i=0;i<((selectionParts.length)/2);i++){
 				
 				// 선택된 항목에 대해서 DB조회를 한 후 필요한 나라및 세부항목에 대한 숫자를 채운다.
-				CountryActionsAndNumbers tmpObject = new CountryActionsAndNumbers(selectionParts[2*i],selectionParts[2*i+1]);
-				tmpObject.setCountryNumbers(countryDao.getNumbersFromCountryData(selectionParts[2*i],selectionParts[2*i+1]));
-				
+				CountryActionsAndNumbers tmpObject = new CountryActionsAndNumbers(selectionParts[2*i],selectionParts[2*i+1],
+						countryDao.getNumbersFromCountryData(selectionParts[2*i],selectionParts[2*i+1]));			
 				selectedList.add(i,tmpObject);
 						
 			}
@@ -83,7 +82,7 @@ public class CountryProcessController {
 			
 			model.addAttribute("test", tmpList);
 			model.addAttribute("test2", tmpValues);
-			//model.addAttribute("selectedList1", selectedList);
+			model.addAttribute("selectedList1", selectedList);
 		}
 		else
 		{

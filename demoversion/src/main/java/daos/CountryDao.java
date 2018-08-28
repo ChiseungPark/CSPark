@@ -21,6 +21,7 @@ public class CountryDao {
 	private String nation ="";
 	private String action ="";
 	private JdbcTemplate jdbcTemplate;
+	private String space = " ";
 	
 	public CountryDao(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
@@ -31,7 +32,7 @@ public class CountryDao {
 	public ArrayList<String> getNumbersFromCountryData(String country, String action1){
 		nation = country;
 		action = action1;
-		String query = "select"+" "+action+" "+"from"+" "+"nkordata";//하나씩 공란을 두어야 한다.
+		String query = "select"+space+action+space+"from"+space+"nkordata";//하나씩 공란을 두어야 한다.
 		return (ArrayList<String>) jdbcTemplate.queryForList(query, String.class);
 		
 	}

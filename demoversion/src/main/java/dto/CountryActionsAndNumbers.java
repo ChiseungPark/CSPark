@@ -6,11 +6,12 @@ public class CountryActionsAndNumbers {
 	
 	private String countryName = null;
 	private String countryAction = null;
-	private List<String> countryNumbers = null;
+	private List<String> countryNumbers = null; // 각 국가별 항목별 DB조회값을 하나의 인스턴스에 저장하기 위해서 변수 지정
 	
-	public CountryActionsAndNumbers(String name, String action){
+	public CountryActionsAndNumbers(String name, String action, List<String> inputList){
 		this.countryName = name;
 		this.countryAction = action;
+		this.countryNumbers = inputList;
 	}
 	// getter,setter 함수
 	//1
