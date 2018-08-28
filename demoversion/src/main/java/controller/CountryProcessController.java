@@ -12,18 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import daos.CountryDao;
 import dto.CountryActionsAndNumbers;
-import dto.SelctedDetailsForCountry;
-import dto.StringTest;
 
 @Controller
 public class CountryProcessController {
 	
-	private String countryName = "KOR";
-	private String detailedAction = "Population_total";
-	private String nextPath = null;
+	private String nextPath = "stay"; //스트링 초기 값은 null이 안되게 하나로 정해주고 시작하자.
 	private String previousSelection = null;
 	private String[] selectionParts = null;
-	private int nIndex = 0;
 	
 	@Autowired
 	public CountryDao countryDao;
@@ -32,14 +27,14 @@ public class CountryProcessController {
 	public String countryProcess(Model model,
 								HttpServletRequest request){
 		
-		// 이 경우 selectedList는 내부적으로 또 다른 ArrayList를 가지고 있는 2중 구조의 ArrayList가 된다.
-		// tmp 리스트는 테스트를 위해서 설정함.
 		List<CountryActionsAndNumbers> selectedList = new ArrayList<CountryActionsAndNumbers>();
-		List<SelctedDetailsForCountry> tmpList = new ArrayList<SelctedDetailsForCountry>();
-		List<String> tmpValues = new ArrayList<String>();
 		
+		// 처음 기본 화면에 대한 로직
+		if(request.getParameter("nextpath") !=null){
+			nextPath = request.getParameter("nextpath");
+		}
+				
 		if(request.getParameter("totalcountryResult")!=null){
-			// 이 부분까지 정확히 들어오는 것은 확인함.
 			previousSelection = request.getParameter("totalcountryResult");
 			selectionParts = previousSelection.split("pchis");
 		}
@@ -47,26 +42,6 @@ public class CountryProcessController {
 			previousSelection = "input request is null";
 		}
 		
-		StringTest testSample= new StringTest(previousSelection);
-		
-		////////////////////////////////////////////////////////////////////////////////////////
-		// 테스트 및 비교를 위해서 test를 설정함. ( 이건 되는 것을 확인함)
-		if(selectionParts[0].isEmpty() != true){
-			
-			for(int index=0;index<((selectionParts.length)/2);index++){
-			tmpList.add(index,new SelctedDetailsForCountry(selectionParts[2*index],selectionParts[2*index+1]));
-			}
-		}
-		
-		///////////////////////////////////////////////////////////////////////////////////////////
-		// 테스트 및 비교를 위해서 test2를 설정함 ( 이건 되는 것을 확인함)
-		if(selectionParts[0].isEmpty() != true){
-			
-			tmpValues = countryDao.getNumbersFromCountryData(selectionParts[0],selectionParts[1]);
-		}
-		
-		///////////////////////////////////////////////////////////////////////////////////////////
-		// countryDao.getNumbersFromCountryData 까지는 쿼리가 제대로 들어가는 것을 확인함.
 		
 		if(selectionParts[0].isEmpty() != true){
 			
@@ -78,10 +53,6 @@ public class CountryProcessController {
 				selectedList.add(i,tmpObject);
 						
 			}
-			// jsp에서 selectedList를 어떻게 보여줄 지 foreach로 확인해야한다.
-			
-			model.addAttribute("test", tmpList);
-			model.addAttribute("test2", tmpValues);
 			model.addAttribute("selectedList1", selectedList);
 		}
 		else
@@ -89,11 +60,16 @@ public class CountryProcessController {
 			//nothing to do.
 		}
 		
-		// 다음 화면으로 이동하는 로직
-		if(nextPath == null)
-			return "countryprocess";
-		else
+		// 다음 화면 및 같은 화면 내에서 사용자의 요청에 대응하는 로직
+		if(nextPath.contains("next"))
 			return "main";
+		else if(nextPath.contains("Basic") == true){
+			
+			model.addAttribute("summary", selectedList);
+			return "main";
+		}
+		else
+			return "countryprocess";
 	}
 
 }

@@ -52,6 +52,13 @@
 	</c:forEach>
 	</table>
 	</div>
+		<input type="submit" name="nextpath" value="Basic Summaries for each">
+		<input type="submit" name="nextpath" value="1st orger regression">
+		<input type="submit" name="nextpath" value="2nd orger regression">
+		<input type="submit" name="nextpath" value="3rd orger regression">
+		<input type="submit" name="nextpath" value="4th orger regression">
+		<input type="submit" name="nextpath" value="5th orger regression">
+		<input type="submit" name="nextpath" value="factor analysis of all">
 	</form>
 
 </body>
