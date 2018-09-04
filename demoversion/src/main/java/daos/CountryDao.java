@@ -10,7 +10,6 @@
 package daos;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -36,7 +35,15 @@ public class CountryDao {
 		return (ArrayList<String>) jdbcTemplate.queryForList(query, String.class);
 		
 	}
-
+	
+	public int getColumnNumber(String country, String action1){
+		nation = country;
+		action = action1;
+		String query = "select count(*) from"+space+"nkordata";
+		String tmp = (String)jdbcTemplate.queryForList(query,String.class).get(0);
+		int tmpNumber = Integer.parseInt(tmp);
+		return tmpNumber;
+	}
 }
 
 

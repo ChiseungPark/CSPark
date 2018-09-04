@@ -1,10 +1,10 @@
 package dto;
 
-public class StringTest {
+public class SimpleString {
 	
 	private String context = "12345";
 	
-	public StringTest(String input){
+	public SimpleString(String input){
 		this.context = input;
 	}
 	

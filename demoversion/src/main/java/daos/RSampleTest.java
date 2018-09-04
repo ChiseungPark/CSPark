@@ -46,6 +46,7 @@ public class RSampleTest {
             }
 
             REXP x;
+            REXP y;
             
             System.out.println("Reading script...");
             x= c.eval("getwd();");
@@ -56,10 +57,12 @@ public class RSampleTest {
             
             newCommand=newCommand+readCSv+"("+fileName+");";
             x= c.eval(newCommand);
-            String tmpResult= c.eval("summary(R1);").asString();
+            String[] tmpResult= c.eval("summary(R1);").asStrings();
             
             System.out.println("--------SUMMARY--------");    
-            System.out.println(tmpResult);
+            for(int index=0;index<tmpResult.length;index++){
+            	System.out.println(tmpResult[index]);
+            }
             System.out.println("--------RList Test--------");
             
             /* 이 부분은 돌지 않음....but don`t know why...

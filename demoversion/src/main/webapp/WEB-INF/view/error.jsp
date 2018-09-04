@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>ERROR</title>
 </head>
 <body>
+	ERROR happened.
+	The below are the messages concerning.
+	${errorcode.context}
 
 </body>
 </html>

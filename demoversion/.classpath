@@ -14,17 +14,17 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.jboss.ide.eclipse.as.core.server.runtime.runtimeTarget/Red Hat JBoss EAP 7.0 Runtime">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.server.core.container/org.jboss.ide.eclipse.as.core.server.runtime.runtimeTarget/Red Hat JBoss EAP 7.0 Runtime">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web;jpt.jpa"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_144">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_144">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Program Files/R/R-3.4.3/library/Rserve/java/REngine.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/R/R-3.4.3/library/Rserve/java/Rserve.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Program Files/R/R-3.4.3/library/Rserve/java/REngine.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Program Files/R/R-3.4.3/library/Rserve/java/Rserve.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
